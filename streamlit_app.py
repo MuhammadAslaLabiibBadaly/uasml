@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -60,10 +59,11 @@ if uploaded_file:
     st.write("Transformed dataset:")
     st.dataframe(dsfruit)
 
-    # Count plot
+    # Count plot using Matplotlib
     st.subheader("Name Variable Count Plot")
     fig, ax = plt.subplots()
-    sns.countplot(dsfruit["name"], ax=ax)
+    name_counts = dsfruit["name"].value_counts()
+    ax.bar(name_counts.index, name_counts.values, color='skyblue')
     ax.set_xlabel("Name")
     ax.set_ylabel("Count of Name")
     ax.set_title("Name variable count")

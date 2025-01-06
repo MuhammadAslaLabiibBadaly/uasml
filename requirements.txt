@@ -1,0 +1,6 @@
+# uasml
+pandas
+numpy
+matplotlib
+scikit-learn
+pickle-mixin
